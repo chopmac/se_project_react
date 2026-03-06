@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header__logo {
+  width: 125px;
+  height: 35px;
+}
+
+.header__info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__date,
+.header__city {
+  font-size: 16px;
+  color: #000;
+}
+
+.header__add-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+}
+
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__username {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
