@@ -18,7 +18,7 @@ function ModalWithForm({
         />
         <h3 className="modal__title">{title}</h3>
         <form className="modal__form" name={name}>
-          {children} {}
+          {children} 
           <button className="modal__submit" type="submit">
             {buttonText}
           </button>

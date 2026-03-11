@@ -78,6 +78,7 @@ function App() {
             name="name"
             className="modal__input"
             placeholder="Name"
+            required
           />
         </label>
         <label className="modal__label">
@@ -87,6 +88,7 @@ function App() {
             name="link"
             className="modal__input"
             placeholder="Image URL"
+            required
           />
         </label>
       </ModalWithForm>
