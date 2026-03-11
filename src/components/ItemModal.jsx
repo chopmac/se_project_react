@@ -2,6 +2,7 @@ import "../blocks/ItemModal.css";
 
 function ItemModal({ isOpen, card, onClose }) {
   if (!card) return null;
+
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`} onClick={onClose}>
       <div
@@ -13,7 +14,7 @@ function ItemModal({ isOpen, card, onClose }) {
           type="button"
           onClick={onClose}
           aria-label="Close modal"
-        ></button>
+        />
         <img src={card.link} alt={card.name} className="modal__image" />
         <div className="modal__footer">
           <h2 className="modal__caption">{card.name}</h2>

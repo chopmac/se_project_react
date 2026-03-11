@@ -17,16 +17,16 @@ export const latitude = "45.68";
 export const longitude = "9.23";
 
 export const weatherOptions = [
-  { url: sunnyDay, day: true, type: "sunny" },
-  { url: cloudyDay, day: true, type: "cloudy" },
-  { url: rainyDay, day: true, type: "rain" },
-  { url: stormDay, day: true, type: "storm" },
-  { url: snowDay, day: true, type: "snow" },
-  { url: fogDay, day: true, type: "fog" },
-  { url: sunnyNight, day: false, type: "sunny" },
-  { url: cloudyNight, day: false, type: "cloudy" },
-  { url: rainyNight, day: false, type: "rain" },
-  { url: stormNight, day: false, type: "storm" },
-  { url: snowNight, day: false, type: "snow" },
-  { url: fogNight, day: false, type: "fog" },
+  { url: sunnyDay, day: true, type: "hot" },
+  { url: cloudyDay, day: true, type: "warm" },
+  { url: rainyDay, day: true, type: "cold" },
+  { url: stormDay, day: true, type: "cold" },
+  { url: snowDay, day: true, type: "cold" },
+  { url: fogDay, day: true, type: "warm" },
+  { url: sunnyNight, day: false, type: "hot" },
+  { url: cloudyNight, day: false, type: "warm" },
+  { url: rainyNight, day: false, type: "cold" },
+  { url: stormNight, day: false, type: "cold" },
+  { url: snowNight, day: false, type: "cold" },
+  { url: fogNight, day: false, type: "warm" },
 ];

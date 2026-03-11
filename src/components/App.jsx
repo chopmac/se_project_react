@@ -34,7 +34,7 @@ function App() {
         const filteredData = filterDataFromApi(data);
         setWeatherData(filteredData);
       })
-      .catch((err) => console.error(err));
+      .catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -55,9 +55,9 @@ function App() {
 
   return (
     <div className="app">
-      <Header 
-        onCreateModal={() => handleOpenModal("create")} 
-        city={weatherData.city} 
+      <Header
+        onCreateModal={() => handleOpenModal("create")}
+        city={weatherData.city}
       />
       <Main
         weatherTemp={weatherData.temp}
@@ -68,43 +68,64 @@ function App() {
       />
       <Footer />
       <ModalWithForm
-  title="New garment"
-  buttonText="Add garment"
-  isOpen={activeModal === "create"}
-  name="create"
-  onClose={handleCloseModal}
->
-  <label className="modal__label">
-    Name
-    <input type="text" name="name" className="modal__input" placeholder="Name" required />
-  </label>
-  <label className="modal__label">
-    Image
-    <input type="url" name="link" className="modal__input" placeholder="Image URL" required />
-  </label>
-  
-  <fieldset className="modal__fieldset">
-  <legend className="modal__legend">Select the weather type:</legend>
-  <label className="modal__label">
-    <input type="radio" name="weather" value="sunny" className="modal__radio" /> Sunny
-  </label>
-  <label className="modal__label">
-    <input type="radio" name="weather" value="cloudy" className="modal__radio" /> Cloudy
-  </label>
-  <label className="modal__label">
-    <input type="radio" name="weather" value="rain" className="modal__radio" /> Rain
-  </label>
-  <label className="modal__label">
-    <input type="radio" name="weather" value="snow" className="modal__radio" /> Snow
-  </label>
-  <label className="modal__label">
-    <input type="radio" name="weather" value="storm" className="modal__radio" /> Storm
-  </label>
-  <label className="modal__label">
-    <input type="radio" name="weather" value="fog" className="modal__radio" /> Fog
-  </label>
-</fieldset>
-</ModalWithForm>
+        title="New garment"
+        buttonText="Add garment"
+        isOpen={activeModal === "create"}
+        name="create"
+        onClose={handleCloseModal}
+      >
+        <label className="modal__label">
+          Name
+          <input
+            type="text"
+            name="name"
+            className="modal__input"
+            placeholder="Name"
+            required
+          />
+        </label>
+        <label className="modal__label">
+          Image
+          <input
+            type="url"
+            name="link"
+            className="modal__input"
+            placeholder="Image URL"
+            required
+          />
+        </label>
+
+        <fieldset className="modal__fieldset">
+          <legend className="modal__legend">Select the weather type:</legend>
+          <label className="modal__label modal__label_type_radio">
+            <input
+              type="radio"
+              name="weather"
+              value="hot"
+              className="modal__radio"
+            />{" "}
+            Hot
+          </label>
+          <label className="modal__label modal__label_type_radio">
+            <input
+              type="radio"
+              name="weather"
+              value="warm"
+              className="modal__radio"
+            />{" "}
+            Warm
+          </label>
+          <label className="modal__label modal__label_type_radio">
+            <input
+              type="radio"
+              name="weather"
+              value="cold"
+              className="modal__radio"
+            />{" "}
+            Cold
+          </label>
+        </fieldset>
+      </ModalWithForm>
       <ItemModal
         isOpen={activeModal === "preview"}
         card={selectedCard}

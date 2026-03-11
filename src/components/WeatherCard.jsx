@@ -8,16 +8,18 @@ function WeatherCard({ weatherTemp, weatherCondition, isDay }) {
 
   const cardClassName = `weather-card ${isDay ? "" : "weather-card_night"}`;
 
-  return (
-    <section className={cardClassName}>
-      <p className="weather-card__temp">{weatherTemp}° F</p>
+ return (
+  <section className={cardClassName}>
+    <p className="weather-card__temp">{weatherTemp}° F</p>
+    {weatherOption?.url && (
       <img
         className="weather-card__image"
         src={weatherOption?.url}
         alt={weatherCondition}
       />
-    </section>
-  );
+    )}
+  </section>
+);
 }
 
 export default WeatherCard;
