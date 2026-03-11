@@ -1,4 +1,4 @@
-import "../blocks/main.css";
+import "../blocks/Main.css";
 import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
 

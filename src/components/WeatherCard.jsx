@@ -1,9 +1,9 @@
 import "../blocks/WeatherCard.css";
 import { weatherOptions } from "../utils/constants";
 
-function WeatherCard({ weatherTemp }) {
+function WeatherCard({ weatherTemp, weatherCondition }) {
   const weatherOption = weatherOptions.find((option) => {
-    return option.day === true && option.type === "sunny";
+    return option.day === true && option.type === weatherCondition;
   });
 
   return (
@@ -12,7 +12,7 @@ function WeatherCard({ weatherTemp }) {
       <img
         className="weather-card__image"
         src={weatherOption?.url}
-        alt={weatherOption?.type}
+        alt={weatherCondition}
       />
     </section>
   );

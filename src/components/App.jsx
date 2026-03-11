@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../blocks/app.css";
+import "../blocks/App.css";
 import Header from "./Header";
 import Main from "./MainSection";
 import Footer from "./Footer";
@@ -65,31 +65,34 @@ function App() {
       />
       <Footer />
       <ModalWithForm
-        title="New garment"
-        buttonText="Add garment"
-        isOpen={activeModal === "create"}
-        name="create"
-        onClose={handleCloseModal}
-      >
-        <label className="modal__label">
-          Name
-          <input
-            type="text"
-            name="name"
-            className="modal__input"
-            placeholder="Name"
-          />
-        </label>
-        <label className="modal__label">
-          Image
-          <input
-            type="url"
-            name="link"
-            className="modal__input"
-            placeholder="Image URL"
-          />
-        </label>
-      </ModalWithForm>
+  title="New garment"
+  buttonText="Add garment"
+  isOpen={activeModal === "create"}
+  name="create"
+  onClose={handleCloseModal}
+>
+  <label className="modal__label">
+    Name
+    <input type="text" name="name" className="modal__input" placeholder="Name" required />
+  </label>
+  <label className="modal__label">
+    Image
+    <input type="url" name="link" className="modal__input" placeholder="Image URL" required />
+  </label>
+  
+  <fieldset className="modal__fieldset">
+    <legend className="modal__legend">Select the weather type:</legend>
+    <label className="modal__label modal__label_type_radio">
+      <input type="radio" name="weather" value="hot" className="modal__radio" required /> Hot
+    </label>
+    <label className="modal__label modal__label_type_radio">
+      <input type="radio" name="weather" value="warm" className="modal__radio" required /> Warm
+    </label>
+    <label className="modal__label modal__label_type_radio">
+      <input type="radio" name="weather" value="cold" className="modal__radio" required /> Cold
+    </label>
+  </fieldset>
+</ModalWithForm>
       <ItemModal
         isOpen={activeModal === "preview"}
         card={selectedCard}
