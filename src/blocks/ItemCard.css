@@ -1,16 +1,18 @@
-.item-card {
-  width: 270px;
+.card {
+  list-style: none;
   display: flex;
   flex-direction: column;
+  width: 270px; 
   margin-bottom: 20px;
 }
 
-.item-card__title {
+.card__name {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
+  padding: 10px; 
 }
 
-.item-card__image {
+.card__image {
   width: 100%;
   height: 270px;
   object-fit: cover;

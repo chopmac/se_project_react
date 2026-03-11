@@ -26,6 +26,8 @@ function App() {
     setSelectedCard(card);
   };
 
+  const isDay = new Date().getHours() >= 6 && new Date().getHours() < 18;
+
   useEffect(() => {
     getWeather()
       .then((data) => {
@@ -60,38 +62,49 @@ function App() {
       <Main
         weatherTemp={weatherData.temp}
         weatherCondition={weatherData.condition}
+        isDay={isDay}
         onSelectCard={handleSelectedCard}
         clothingItems={clothingItems}
       />
       <Footer />
       <ModalWithForm
-        title="New garment"
-        buttonText="Add garment"
-        isOpen={activeModal === "create"}
-        name="create"
-        onClose={handleCloseModal}
-      >
-        <label className="modal__label">
-          Name
-          <input
-            type="text"
-            name="name"
-            className="modal__input"
-            placeholder="Name"
-            required
-          />
-        </label>
-        <label className="modal__label">
-          Image
-          <input
-            type="url"
-            name="link"
-            className="modal__input"
-            placeholder="Image URL"
-            required
-          />
-        </label>
-      </ModalWithForm>
+  title="New garment"
+  buttonText="Add garment"
+  isOpen={activeModal === "create"}
+  name="create"
+  onClose={handleCloseModal}
+>
+  <label className="modal__label">
+    Name
+    <input type="text" name="name" className="modal__input" placeholder="Name" required />
+  </label>
+  <label className="modal__label">
+    Image
+    <input type="url" name="link" className="modal__input" placeholder="Image URL" required />
+  </label>
+  
+  <fieldset className="modal__fieldset">
+  <legend className="modal__legend">Select the weather type:</legend>
+  <label className="modal__label">
+    <input type="radio" name="weather" value="sunny" className="modal__radio" /> Sunny
+  </label>
+  <label className="modal__label">
+    <input type="radio" name="weather" value="cloudy" className="modal__radio" /> Cloudy
+  </label>
+  <label className="modal__label">
+    <input type="radio" name="weather" value="rain" className="modal__radio" /> Rain
+  </label>
+  <label className="modal__label">
+    <input type="radio" name="weather" value="snow" className="modal__radio" /> Snow
+  </label>
+  <label className="modal__label">
+    <input type="radio" name="weather" value="storm" className="modal__radio" /> Storm
+  </label>
+  <label className="modal__label">
+    <input type="radio" name="weather" value="fog" className="modal__radio" /> Fog
+  </label>
+</fieldset>
+</ModalWithForm>
       <ItemModal
         isOpen={activeModal === "preview"}
         card={selectedCard}
