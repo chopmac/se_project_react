@@ -2,7 +2,7 @@ import { latitude, longitude, apiKey } from "./constants";
 
 export const getWeather = () => {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`,
   ).then((res) => {
     if (res.ok) {
       return res.json();
@@ -12,22 +12,29 @@ export const getWeather = () => {
   });
 };
 
-export const getWeatherCondition = (temp) => {
-  if (temp >= 86) {
-    return "hot";
-  } else if (temp >= 66 && temp < 86) {
-    return "warm";
-  } else {
-    return "cold";
-  }
-};
-
 export const filterDataFromApi = (data) => {
-  const main = data.main;
-  const temperature = main && main.temp;
+  const temp = Math.round(data.main.temp);
+
+  let condition = "";
+  if (temp >= 86) {
+    condition = "hot";
+  } else if (temp >= 66 && temp <= 85) {
+    condition = "warm";
+  } else {
+    condition = "cold";
+  }
+
   return {
-    temp: Math.round(temperature),
+    temp: temp,
     city: data.name,
-    condition: getWeatherCondition(temperature),
+    condition: condition,
   };
 };
+
+export const weather = {
+  temperature: {
+    F: data.main.temp,
+    C: Math.round((data.main.temp - 32) * 5 / 9)
+  }
+};
+;

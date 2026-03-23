@@ -1,7 +1,8 @@
 import "../blocks/ItemModal.css";
 
-function ItemModal({ isOpen, card, onClose }) {
+function ItemModal({ isOpen, card, onClose, onDeleteCard }) {
   if (!card) return null;
+
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`} onClick={onClose}>
       <div
@@ -13,10 +14,21 @@ function ItemModal({ isOpen, card, onClose }) {
           type="button"
           onClick={onClose}
           aria-label="Close modal"
-        ></button>
+        />
         <img src={card.link} alt={card.name} className="modal__image" />
         <div className="modal__footer">
-          <h2 className="modal__caption">{card.name}</h2>
+          <div className="modal__footer-top">
+            <h2 className="modal__caption">{card.name}</h2>
+            {onDeleteCard && (
+              <button
+                className="modal__delete-button"
+                type="button"
+                onClick={() => onDeleteCard(card)}
+              >
+                Delete item
+              </button>
+            )}
+          </div>
           <p className="modal__weather-type">Weather: {card.weather}</p>
         </div>
       </div>
@@ -25,3 +37,4 @@ function ItemModal({ isOpen, card, onClose }) {
 }
 
 export default ItemModal;
+  

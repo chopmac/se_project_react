@@ -2,14 +2,11 @@ import "../blocks/ItemCard.css";
 
 function ItemCard({ item, onSelectCard }) {
   return (
-    <li className="card">
-      <div className="card__name">{item.name}</div>
-      <img
-        src={item.link}
-        alt={item.name}
-        className="card__image"
-        onClick={() => onSelectCard(item)}
-      />
+    <li className="card" onClick={() => onSelectCard(item)}>
+      <div className="card__image-container">
+        <img className="card__image" src={item.link} alt={item.name} />
+        <p className="card__name">{item.name}</p>
+      </div>
     </li>
   );
 }

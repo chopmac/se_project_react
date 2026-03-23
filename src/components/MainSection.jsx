@@ -2,10 +2,12 @@ import "../blocks/Main.css";
 import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
 
-function Main({ weatherTemp, weatherCondition, onSelectCard, clothingItems }) {
+function Main({ weatherTemp, weatherCondition, isDay, onSelectCard, clothingItems }) {
   return (
     <main className="main">
-      <WeatherCard weatherTemp={weatherTemp} />
+      <WeatherCard weatherTemp={weatherTemp}
+      weatherCondition={weatherCondition} 
+        isDay={isDay} />
       <section className="main__clothes">
         <div className="main__info">
           Today is {weatherTemp}° F / You should wear:
