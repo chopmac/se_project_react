@@ -13,28 +13,22 @@ export const getWeather = () => {
 };
 
 export const filterDataFromApi = (data) => {
-  const temp = Math.round(data.main.temp);
+  const result = {};
+  result.city = data.name;
 
-  let condition = "";
-  if (temp >= 86) {
-    condition = "hot";
-  } else if (temp >= 66 && temp <= 85) {
-    condition = "warm";
-  } else {
-    condition = "cold";
-  }
-
-  return {
-    temp: temp,
-    city: data.name,
-    condition: condition,
+  const tempF = data.main.temp;
+  result.temp = {
+    F: Math.round(tempF),
+    C: Math.round(((tempF - 32) * 5) / 9),
   };
-};
 
-export const weather = {
-  temperature: {
-    F: data.main.temp,
-    C: Math.round((data.main.temp - 32) * 5 / 9)
+  if (tempF >= 86) {
+    result.condition = "hot";
+  } else if (tempF >= 66 && tempF <= 85) {
+    result.condition = "warm";
+  } else {
+    result.condition = "cold";
   }
+
+  return result;
 };
-;

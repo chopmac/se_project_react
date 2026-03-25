@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../blocks/Header.css";
 import logo from "../assets/logo.svg";
 import avatar from "../assets/avatar.svg";
-import ToggleSwitch from "./ToggleSwitch"; 
+import ToggleSwitch from "./ToggleSwitch";
 
 function Header({ onCreateModal, city }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -23,7 +23,7 @@ function Header({ onCreateModal, city }) {
       </div>
       <div className="header__user-container">
         <ToggleSwitch />
-        
+
         <button
           className="header__add-clothes-btn"
           type="button"
@@ -32,7 +32,6 @@ function Header({ onCreateModal, city }) {
           + Add Clothes
         </button>
 
-       
         <Link to="/profile" className="header__link">
           <div className="header__user-info">
             <p className="header__user-name">Terrence Tegegne</p>

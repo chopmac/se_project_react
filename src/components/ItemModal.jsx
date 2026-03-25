@@ -15,7 +15,8 @@ function ItemModal({ isOpen, card, onClose, onDeleteCard }) {
           onClick={onClose}
           aria-label="Close modal"
         />
-        <img src={card.link} alt={card.name} className="modal__image" />
+
+        <img src={card.imageUrl} alt={card.name} className="modal__image" />
         <div className="modal__footer">
           <div className="modal__footer-top">
             <h2 className="modal__caption">{card.name}</h2>
@@ -37,4 +38,3 @@ function ItemModal({ isOpen, card, onClose, onDeleteCard }) {
 }
 
 export default ItemModal;
-  

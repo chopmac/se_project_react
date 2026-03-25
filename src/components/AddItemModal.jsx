@@ -5,13 +5,14 @@ import { useForm } from "../hooks/useForm";
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const { values, handleChange, setValues } = useForm({
     name: "",
-    link: "",
+    imageUrl: "",
     weather: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem(values, () => setValues({ name: "", link: "", weather: "" }));
+
+    onAddItem(values, () => setValues({ name: "", imageUrl: "", weather: "" }));
   };
 
   return (
@@ -39,11 +40,11 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
         Image
         <input
           type="url"
-          name="link"
+          name="imageUrl"
           className="modal__input"
           placeholder="Image URL"
           required
-          value={values.link}
+          value={values.imageUrl}
           onChange={handleChange}
         />
       </label>
@@ -57,7 +58,8 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             className="modal__radio"
             onChange={handleChange}
             checked={values.weather === "hot"}
-          /> Hot
+          />{" "}
+          Hot
         </label>
         <label className="modal__label modal__label_type_radio">
           <input
@@ -67,7 +69,8 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             className="modal__radio"
             onChange={handleChange}
             checked={values.weather === "warm"}
-          /> Warm
+          />{" "}
+          Warm
         </label>
         <label className="modal__label modal__label_type_radio">
           <input
@@ -77,7 +80,8 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             className="modal__radio"
             onChange={handleChange}
             checked={values.weather === "cold"}
-          /> Cold
+          />{" "}
+          Cold
         </label>
       </fieldset>
     </ModalWithForm>

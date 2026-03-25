@@ -1,6 +1,6 @@
 import React from "react";
-import ItemCard from "../components/ItemCard"; 
-import "../blocks/ClothesSection.css";
+import ItemCard from "../ItemCard.jsx"; 
+import "../../blocks/ClothesSection.css";
 
 function ClothesSection({ onSelectCard, clothingItems, onCreateModal }) {
   return (

@@ -1,6 +1,6 @@
 import SideBar from "./SideBar";
 import ClothesSection from "./ClothesSection";
-import "../blocks/Profile.css";
+import "../../blocks/Profile.css";
 
 function Profile({ onSelectCard, clothingItems, onCreateModal }) {
   return (

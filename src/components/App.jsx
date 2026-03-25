@@ -5,11 +5,11 @@ import Header from "./Header";
 import Main from "./MainSection";
 import Footer from "./Footer";
 import ItemModal from "./ItemModal";
-import Profile from "./Profile";
+import Profile from "./profile/Profile.jsx";
 import AddItemModal from "./AddItemModal";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import { getWeather, filterDataFromApi } from "../utils/weatherApi";
-import { CurrentTemperatureUnitContext } from "./contexts/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
 import { getItems, addItem, deleteItem } from "../utils/api";
 
 function App() {
@@ -38,11 +38,7 @@ function App() {
   };
 
   const handleAddItemSubmit = (values, resetForm) => {
-    addItem({
-      name: values.name,
-      imageUrl: values.link,
-      weather: values.weather,
-    })
+    addItem(values)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         handleCloseModal();
@@ -52,10 +48,12 @@ function App() {
   };
 
   const handleCardDelete = () => {
-    deleteItem(selectedCard._id)
+    deleteItem(selectedCard._id || selectedCard.id)
       .then(() => {
         setClothingItems(
-          clothingItems.filter((item) => item._id !== selectedCard._id)
+          clothingItems.filter(
+            (item) => (item._id || item.id) !== (selectedCard._id || selectedCard.id)
+          )
         );
         handleCloseModal();
       })
