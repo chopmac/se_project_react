@@ -48,23 +48,24 @@
 }
 
 .modal__close {
-  background-image: url("../assets/close.svg");
+  background: url("../assets/close.svg");
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: -30px;
+  right: -30px;
   border: none;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
 }
 
 .modal__fieldset {
   border: none;
   padding: 0;
-  margin: 0;
+  margin: 20px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .modal__legend {
@@ -76,11 +77,13 @@
 .modal__label_type_radio {
   display: flex;
   align-items: center;
-  font-size: 14px;
-  font-weight: normal;
+  font-size: 10px;
+  font-weight: 400;
   cursor: pointer;
 }
 
 .modal__radio {
-  margin-right: 10px;
+  margin-right: 0;
+  height: 16PX;
+  width: 16px;
 }

@@ -1,8 +1,23 @@
-.profile {
+.profile__items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 20px; 
+  width: 100%;
+}
+
+.profile__header {
   display: flex;
-  gap: 20px;
-  padding: 0 70px;
-  margin-top: 40px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile__add-button {
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
