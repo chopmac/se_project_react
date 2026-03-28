@@ -11,6 +11,7 @@ import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import { getWeather, filterDataFromApi } from "../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
 import { getItems, addItem, deleteItem } from "../utils/api";
+import avatar from "../assets/avatar.svg";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -118,6 +119,8 @@ function App() {
                 onSelectCard={handleSelectedCard}
                 clothingItems={clothingItems}
                 onCreateModal={() => handleOpenModal("create")}
+                avatar={avatar}
+                username="Terrence Tegegne"
               />
             }
           />

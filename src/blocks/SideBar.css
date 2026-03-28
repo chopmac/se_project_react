@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 200px;
-  gap: 16px;
+  gap: 24px;
 }
 
 .sidebar__user-info {
@@ -16,12 +16,21 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .sidebar__username {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
+  line-height: 20px;
+}
+
+.sidebar__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px; 
 }
 
 .sidebar__button {
@@ -32,6 +41,8 @@
   font-size: 16px;
   cursor: pointer;
   padding: 0;
+  line-height: 20px;
+  color: #000;
 }
 
 .sidebar__logout {
