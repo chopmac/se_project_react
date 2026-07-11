@@ -1,4 +1,3 @@
-
 # WTWR (What to Wear)
 
 ## About the Project
@@ -9,6 +8,7 @@
 - **Smart Suggestions:** Recommends outfits based on the current temperature.
 - **Dynamic Backgrounds:** The interface changes between day and night themes depending on the local time and weather.
 - **Interactive Modals:** Users can view detailed information about clothing items through pop-ups.
+- **User Authentication & Interactions:** Supports user registration, login authorization, profile modifications, and a card-liking feature.
 
 ## Technologies Used
 - **React**: For building the user interface and managing component state.
@@ -16,11 +16,15 @@
 - **OpenWeather API**: To retrieve live meteorological data.
 - **CSS (BEM methodology)**: For structured, maintainable styling.
 
-## How to Run
+## Associated Repositories
+- **Backend API Repository:** [se_project_express](https://github.com/chopmac/se_project_express)
+
 ## Deployment
 You can view the live project here:
-[ https://chopmac.github.io/se_project_react/]( https://chopmac.github.io/se_project_react/)
+[https://chopmac.github.io/se_project_react/](https://chopmac.github.io/se_project_react/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
+## How to Run
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Start the development server using `npm run dev`.
+4. Ensure your backend server is running concurrently on port `3001`.
