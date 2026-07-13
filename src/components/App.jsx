@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import "../blocks/App.css";
 import Header from "./Header";
 import Main from "./MainSection";
@@ -17,6 +17,10 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { getItems, addItem, deleteItem, updateUserProfile, addCardLike, removeCardLike } from "../utils/api";
 import { register, authorize, checkToken } from "../utils/auth";
 
+function ProtectedRoute({ children, isLoggedIn }) {
+  return isLoggedIn ? children : <Navigate to="/" replace />;
+}
+
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [activeModal, setActiveModal] = useState("");
@@ -29,6 +33,8 @@ function App() {
   });
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
@@ -88,6 +94,7 @@ function App() {
             .then((user) => {
               setCurrentUser(user);
               handleCloseModal();
+              navigate("/");
             })
             .catch(console.error);
         }
@@ -131,6 +138,7 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser(null);
+    navigate("/");
   };
 
   const isDay = new Date().getHours() >= 6 && new Date().getHours() < 18;
@@ -189,7 +197,6 @@ function App() {
             onRegisterModal={() => handleOpenModal("register")}
             onLoginModal={() => handleOpenModal("login")}
           />
-
           <Routes>
             <Route
               path="/"
@@ -208,52 +215,47 @@ function App() {
             <Route
               path="/profile"
               element={
-                <Profile
-                  onSelectCard={handleSelectedCard}
-                  clothingItems={clothingItems}
-                  onCreateModal={() => handleOpenModal("create")}
-                  onEditProfile={() => handleOpenModal("edit-profile")}
-                  onLogOut={handleLogOut}
-                />
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
+                    onSelectCard={handleSelectedCard}
+                    clothingItems={clothingItems}
+                    onCreateModal={() => handleOpenModal("create")}
+                    onEditProfile={() => handleOpenModal("edit-profile")}
+                    onLogOut={handleLogOut}
+                  />
+                </ProtectedRoute>
               }
             />
           </Routes>
-
           <Footer />
-
           <AddItemModal
             isOpen={activeModal === "create"}
             onClose={handleCloseModal}
             onAddItem={handleAddItemSubmit}
           />
-
           <ItemModal
             isOpen={activeModal === "preview"}
             card={selectedCard}
             onClose={handleCloseModal}
             onDeleteCard={() => handleOpenModal("delete")}
           />
-
           <DeleteConfirmationModal
             isOpen={activeModal === "delete"}
             onClose={handleCloseModal}
             onDelete={handleCardDelete}
           />
-
           <RegisterModal
             isOpen={activeModal === "register"}
             onClose={handleCloseModal}
             onRegister={handleRegister}
             switchToLogin={() => handleOpenModal("login")}
           />
-
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={handleCloseModal}
             onLogin={handleLogin}
             switchToRegister={() => handleOpenModal("register")}
           />
-
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             onClose={handleCloseModal}

@@ -19,7 +19,7 @@ function Header({ onCreateModal, city, isLoggedIn, onRegisterModal, onLoginModal
         <img
           src={currentUser.avatar}
           alt={currentUser.name || "User avatar"}
-          className="header__user-avatar"
+          className="header__avatar"
         />
       );
     }

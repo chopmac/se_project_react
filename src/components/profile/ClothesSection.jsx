@@ -2,7 +2,16 @@ import React from "react";
 import ItemCard from "../ItemCard.jsx"; 
 import "../../blocks/ClothesSection.css";
 
-function ClothesSection({ onSelectCard, clothingItems, onCreateModal }) {
+function ClothesSection({ 
+  onSelectCard, 
+  clothingItems, 
+  onCreateModal, 
+  currentUser, 
+  isLoggedIn, 
+  onCardLike 
+}) {
+  const userItems = clothingItems.filter((item) => item.owner === currentUser?._id);
+
   return (
     <div className="clothes-section">
       <div className="clothes-section__header">
@@ -16,11 +25,13 @@ function ClothesSection({ onSelectCard, clothingItems, onCreateModal }) {
         </button>
       </div>
       <ul className="clothes-section__items">
-        {clothingItems.map((item) => (
+        {userItems.map((item) => (
           <ItemCard
             key={item._id || item.id}
             item={item}
             onSelectCard={onSelectCard}
+            isLoggedIn={isLoggedIn}
+            onCardLike={onCardLike}
           />
         ))}
       </ul>

@@ -20,16 +20,14 @@ function ItemCard({ item, onSelectCard, onCardLike, isLoggedIn }) {
     <li className="card" onClick={() => onSelectCard(item)}>
       <div className="card__image-container">
         <img className="card__image" src={item.imageUrl} alt={item.name} />
-        <div className="card__info">
-          <p className="card__name">{item.name}</p>
-          {isLoggedIn && (
-            <button
-              type="button"
-              className={itemLikeButtonClassName}
-              onClick={handleLike}
-            ></button>
-          )}
-        </div>
+        <p className="card__name">{item.name}</p>
+        {isLoggedIn && (
+          <button
+            type="button"
+            className={itemLikeButtonClassName}
+            onClick={handleLike}
+          ></button>
+        )}
       </div>
     </li>
   );
