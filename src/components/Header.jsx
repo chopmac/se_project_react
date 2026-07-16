@@ -63,14 +63,14 @@ function Header({ onCreateModal, city, isLoggedIn, onRegisterModal, onLoginModal
         ) : (
           <div className="header__auth-container">
             <button
-              className="header__auth-btn"
+              className="header__register-btn"
               type="button"
               onClick={onRegisterModal}
             >
               Sign up
             </button>
             <button
-              className="header__auth-btn"
+              className="header__login-btn"
               type="button"
               onClick={onLoginModal}
             >

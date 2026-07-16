@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import ModalWithForm from "./ModalWithForm";
+import { useForm } from "../hooks/useForm";
 
 function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const { values, handleChange, setValues } = useForm({
+    email: "",
+    password: "",
+    name: "",
+    avatar: "",
+  });
+
+  useEffect(() => {
+    if (isOpen) {
+      setValues({
+        email: "",
+        password: "",
+        name: "",
+        avatar: "",
+      });
+    }
+  }, [isOpen, setValues]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ name, avatar, email, password });
+    onRegister(values);
   };
 
   return (
@@ -24,10 +38,11 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
         Email*
         <input
           type="email"
+          name="email"
           className="modal__input"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={values.email}
+          onChange={handleChange}
           required
         />
       </label>
@@ -35,10 +50,11 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
         Password*
         <input
           type="password"
+          name="password"
           className="modal__input"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={values.password}
+          onChange={handleChange}
           required
         />
       </label>
@@ -46,23 +62,29 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
         Name
         <input
           type="text"
+          name="name"
           className="modal__input"
           placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={values.name}
+          onChange={handleChange}
         />
       </label>
       <label className="modal__label">
         Avatar URL
         <input
           type="url"
+          name="avatar"
           className="modal__input"
           placeholder="Avatar URL"
-          value={avatar}
-          onChange={(e) => setAvatar(e.target.value)}
+          value={values.avatar}
+          onChange={handleChange}
         />
       </label>
-      <button type="button" className="modal__or-button" onClick={switchToLogin}>
+      <button 
+        type="button" 
+        className="modal__or-button" 
+        onClick={switchToLogin}
+      >
         or Log in
       </button>
     </ModalWithForm>

@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import ModalWithForm from "./ModalWithForm";
+import { useForm } from "../hooks/useForm";
 
 function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { values, handleChange, setValues } = useForm({
+    email: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    if (isOpen) {
+      setValues({
+        email: "",
+        password: "",
+      });
+    }
+  }, [isOpen, setValues]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({ email, password });
+    onLogin(values);
   };
 
   return (
@@ -22,10 +34,11 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
         Email*
         <input
           type="email"
+          name="email"
           className="modal__input"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={values.email}
+          onChange={handleChange}
           required
         />
       </label>
@@ -33,14 +46,19 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
         Password*
         <input
           type="password"
+          name="password"
           className="modal__input"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={values.password}
+          onChange={handleChange}
           required
         />
       </label>
-      <button type="button" className="modal__or-button" onClick={switchToRegister}>
+      <button 
+        type="button" 
+        className="modal__or-button" 
+        onClick={switchToRegister}
+      >
         or Sign up
       </button>
     </ModalWithForm>
