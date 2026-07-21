@@ -5,7 +5,10 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function ItemCard({ item, onSelectCard, onCardLike, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const isLiked = item.likes && item.likes.some((id) => id === currentUser?._id);
+  // Safely check if current user liked the item (handles both string IDs and user objects)
+  const isLiked = item.likes?.some(
+    (id) => id === currentUser?._id || id._id === currentUser?._id
+  );
 
   const itemLikeButtonClassName = `card__like-btn ${
     isLiked ? "card__like-btn_liked" : ""
@@ -18,17 +21,18 @@ function ItemCard({ item, onSelectCard, onCardLike, isLoggedIn }) {
 
   return (
     <li className="card" onClick={() => onSelectCard(item)}>
-      <div className="card__image-container">
-        <img className="card__image" src={item.imageUrl} alt={item.name} />
+      <div className="card__header">
         <p className="card__name">{item.name}</p>
         {isLoggedIn && (
           <button
             type="button"
             className={itemLikeButtonClassName}
             onClick={handleLike}
-          ></button>
+            aria-label="Like item"
+          />
         )}
       </div>
+      <img className="card__image" src={item.imageUrl} alt={item.name} />
     </li>
   );
 }

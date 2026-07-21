@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import ItemCard from "../ItemCard.jsx"; 
 import "../../blocks/ClothesSection.css";
+// Import your CurrentUserContext (adjust path if needed)
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js"; 
 
 function ClothesSection({ 
   onSelectCard, 
   clothingItems, 
   onCreateModal, 
-  currentUser, 
   isLoggedIn, 
   onCardLike 
 }) {
-  const userItems = clothingItems.filter((item) => item.owner === currentUser?._id);
+  const currentUser = useContext(CurrentUserContext);
+
+  const userItems = clothingItems.filter(
+    (item) => item.owner === currentUser?._id
+  );
 
   return (
     <div className="clothes-section">

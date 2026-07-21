@@ -25,7 +25,6 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
   return (
     <ModalWithForm
       title="Log in"
-      buttonText="Log in"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
@@ -54,13 +53,18 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
           required
         />
       </label>
-      <button 
-        type="button" 
-        className="modal__or-button" 
-        onClick={switchToRegister}
-      >
-        or Sign up
-      </button>
+      <div className="modal__submit-container">
+        <button type="submit" className="modal__submit">
+          Log in
+        </button>
+        <button 
+          type="button" 
+          className="modal__or-button" 
+          onClick={switchToRegister}
+        >
+          or Sign up
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

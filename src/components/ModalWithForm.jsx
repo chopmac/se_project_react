@@ -1,3 +1,4 @@
+import React from "react";
 import "../blocks/ModalWithForm.css";
 
 function ModalWithForm({
@@ -22,9 +23,13 @@ function ModalWithForm({
 
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-          <button className="modal__submit" type="submit">
-            {buttonText}
-          </button>
+          {buttonText && (
+            <div className="modal__submit-container">
+              <button className="modal__submit" type="submit">
+                {buttonText}
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </div>

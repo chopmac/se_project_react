@@ -1,89 +1,119 @@
 .modal__content {
+  position: relative;
   background-color: #ffffff;
   border-radius: 20px;
-  padding: 30px;
-  width: 100%;
-  max-width: 400px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 28px 28px 36px 28px;
+  width: 496px;
+  box-sizing: border-box;
 }
 
 .modal__title {
-  margin: 0;
-  font-size: 24px;
+  margin: 0 0 24px 0;
+  font-size: 16px;
   font-weight: 700;
+  line-height: 20px;
 }
 
 .modal__form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .modal__label {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 24px;
 }
 
 .modal__input {
-  margin-top: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-top: 8px;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid #000;
   font-size: 16px;
+  outline: none;
+}
+
+.modal__submit-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .modal__submit {
-  padding: 10px;
+  align-self: flex-start;
+  padding: 8px 16px;
   background-color: #000;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
   font-weight: 700;
 }
 
+.modal__submit:hover {
+  opacity: 0.8;
+}
+
+.modal__or-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.modal__or-button:hover {
+  color: #000;
+}
+
 .modal__close {
-  background: url("../assets/close.svg");
+  background: url("../assets/close.svg") center/contain no-repeat;
   position: absolute;
-  top: -30px;
-  right: -30px;
+  top: 20px;
+  right: 28px;
   border: none;
   cursor: pointer;
-  width: 24px;
-  height: 24px;
-  background-size: contain;
+  width: 20px;
+  height: 20px;
 }
 
 .modal__fieldset {
   border: none;
   padding: 0;
-  margin: 20px 0 0;
+  margin: 0 0 24px 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .modal__legend {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 5px;
+  line-height: 20px;
+  margin-bottom: 12px;
 }
 
 .modal__label_type_radio {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  font-size: 10px;
+  gap: 8px;
+  font-size: 16px;
   font-weight: 400;
   cursor: pointer;
 }
 
 .modal__radio {
-  margin-right: 0;
-  height: 16PX;
+  margin: 0;
+  height: 16px;
   width: 16px;
+  accent-color: #000;
 }

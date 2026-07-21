@@ -2,52 +2,114 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
+  padding: 32px 0 0 0;
+  margin-bottom: 40px;
 }
 
 .header__logo-container {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 }
 
-.header__add-clothes-btn {
-  background: none;
-  border: none;
-  color: rgba(0, 0, 0, 0.6);
+.header__logo {
+  width: 88px;
+  height: 40px;
+}
+
+.header__date-location {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
   font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.header__user-name {
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.header__add-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: #000;
+  line-height: 24px;
+  margin: 0;
 }
 
 .header__user-container {
   display: flex;
   align-items: center;
+  gap: 20px;
+}
+
+/* Auth Buttons Container & Buttons */
+.header__auth-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__register-btn,
+.header__login-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+.header__register-btn:hover,
+.header__login-btn:hover {
+  opacity: 0.6;
+}
+
+/* Logged-In User Controls */
+.header__add-clothes-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+.header__add-clothes-btn:hover {
+  opacity: 0.6;
+}
+
+.header__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header__user-info {
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
 
-.header__username {
-  font-size: 16px;
-  font-weight: 500;
+.header__user-name {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
 }
 
+/* Avatar Image & Placeholder */
 .header__avatar {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.header__avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
 }
